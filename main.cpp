@@ -23,28 +23,34 @@ int main()
         break;
     }
 
-    enum Mood
+    //enum are basically named integers
+    enum class Mood
     {
-        Happy,
-        Angry,
-        Sad
+        Happy = -1, //defaults to 0
+        Angry = -2, //defaults to previous one + 1
+        Sad = 10 //and so on...
     };
 
     //creating a variable of the enum type mood, and give it a value of Happy
-    Mood mood = Happy;
+    Mood mood = Mood::Sad;
+
+    int moodInInt = (int)mood;
+
+    Mood moodFromInt = (Mood)-1;
     
     switch (mood)
     {
-    case Happy:
+    case Mood::Happy:
         std::cout << "Happy" << std::endl;
         break;
-    case Angry:
+    case Mood::Angry:
         std::cout << "Angry" << std::endl;
         break;
-    case Sad:
+    case Mood::Sad:
         std::cout << "Sad" << std::endl;
         break;
     default:
+        std::cout << "No Mood" << std::endl;
         break;
     }
 
